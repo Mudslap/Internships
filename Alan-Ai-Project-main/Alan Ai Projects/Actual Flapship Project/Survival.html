@@ -1,0 +1,1703 @@
+<html>
+	<head>
+		<title>Survival</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+		<style>
+			html{
+				padding: 0;
+				margin: 0;
+				font-family: "Courier New";
+			}
+			
+			body{
+				background-color: lightgray;
+			}
+			
+			/*General*/
+			h2{
+				font-size: 17px;
+				z-index: 1;
+			}
+			.line{
+				width: 100px;
+				height: 1px;
+				border-top: 2px solid black;
+				position: relative;
+				left: 50%;
+				transform: translate(-50%,0%);
+			}
+			.links{
+				color: mediumblue;
+			}
+			.links:hover{
+				color: mediumblue;
+				border-bottom: 2px solid mediumblue;
+			}
+			.large{
+				font-size: 70px;
+				font-weight: bold;
+				text-align: center;
+			}
+
+			/*Header*/
+			#header{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 8%;
+				background-color: lightslategray;
+				background: rgba(0, 0, 0, 0.4);
+				color: black;
+				font-size: 30px;
+				z-index: 3;
+			}
+			details{
+				position: fixed;
+				
+			}
+			.one{
+				position: fixed;
+				right: 35%;
+				top: 50%;
+				transform: translate(0%, -50%);
+			}
+			.two{
+				position: fixed;
+				left: 15px;
+				top: 50%;
+				transform: translate(0%, -50%);
+				margin: 0;
+				color: gainsboro;
+			}
+			.three{
+				position: fixed;
+				right: 1%;
+				top: 50%;
+				transform: translate(0%, -50%);
+			}
+			#header details p{
+				background-color: dimgray;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 39px;
+				font-size: 17px;
+				padding: 10px;
+			}
+			details summary{
+				cursor: pointer;
+			}	
+			#center{
+				position: relative;
+				left: 0;
+				top: 50%;
+				transform: translate(0, -50%);
+			}	
+			a{
+				text-decoration: none;
+				color: black;
+				font-weight: bold; 
+				transition: 0.3s;
+			}
+			a:hover{
+				color: white;
+				border-bottom: 2px solid white;
+			}
+			.hide{
+				display: none;
+			}
+			
+			#myCanvas{
+				display: block;
+				position: relative;
+				left: 50%;
+				top: 35%;
+				transform: translate(-50%, -50%);
+				width: 600px;
+				height: 600px;
+				border: 3px solid black;
+				margin-bottom: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<br>
+		<br>
+		<br>
+		<div id="title">
+			<h1 style="text-align: center; font-weight: bold; ">Directions</h1>
+			<div class="line"></div>
+			<h2 style="text-align: center;">Press the mic button on the bottom right to start</h2>
+			<h2 style="text-align: center;">The game automatically starts so be careful!</h2>
+			<h2 style="text-align: center;">Say LEFT, RIGHT, UP, DOWN to control the chicken and say USE to shoot a bow or use a potion</h2>
+			<h2 style="text-align: center;">Say 1, 2, 3, 4, 5, or 6 to equip loot you collected from chests</h2>
+		</div>
+		<h2 style="text-align: center;">To attack, walk over enemies, and to loot, walk over chests!</h2>
+		<h2 style="text-align: center;">THe objective is to kill asmany enemies as possible! Have Fun!</h2>
+		<img src="img/chickensheet.png" id="sheet" class="hide">
+		<img src="img/image.png" id="sheetf" class="hide">
+		<img src="img/grass.png" id="grass" class="hide">
+		<img src="img/water.png" id="water" class="hide">
+		<img src="img/trees.png" id="trees" class="hide">
+		<img src="img/axe.png" id="a" class="hide">
+		<img src="img/chest_closed.png" id="cl" class="hide">
+		<img src="img/chest_open.png" id="co" class="hide">
+		<img src="img/sword.png" id="sword" class="hide">
+		<img src="img/bow.png" id="bow" class="hide">
+		<img src="img/arrow_v.png" id="arrow_h" class="hide">
+		<img src="img/arrow_h.png" id="arrow_v" class="hide">
+		<img src="img/spear.png" id="spear" class="hide">
+		<img src="img/potion.png" id="potion" class="hide">
+		<img src="img/fox.png" id="fox" class="hide">
+		<img src="img/heart.png" id="heart" class="hide">
+		<img src="img/stamina.png" id="stamina" class="hide">
+		<canvas id="myCanvas"></canvas>
+		
+		<div id="header">
+			<div id="center">
+				<details class="one">
+					<summary><a href="Chump.html">Chump Game</a></summary>
+					<p>This game is a remix of the famous dinosaur game made by Google except with a TWIST! You use your voice to control the character rather than using your keyboard!</p>
+				</details>
+				
+				<details class="three">
+					<summary><a href="Survival.html">Survival Game</a></summary>
+					<p>This game is a fast paced survival style game where you loot chests and try to kill your fox enemies. This game is infinite and your objective is to get the most amount of enemies killed as possible!</p>
+				</details>
+				
+				<h3 class="two"><a href="home.html">Voice Games</a></h3>
+			</div>
+		</div>
+		
+		<div class="alan-btn"></div>
+		
+		<script type="text/javascript"
+ src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+  
+</script>
+		<script>
+			var canvas = document.getElementById("myCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			var sheet = document.getElementById("sheet");
+			var sheetf = document.getElementById("sheetf");
+			var g = document.getElementById("grass");
+			var w = document.getElementById("water");
+			var t = document.getElementById("trees");
+			var axes = document.getElementById("a");
+			var cl = document.getElementById("cl");
+			var co = document.getElementById("co");
+			var sword = document.getElementById("sword");
+			var bows = document.getElementById("bow");
+			var arrows = document.getElementById("arrow_h");
+			var arrows_h = document.getElementById("arrow_v");
+			var spears = document.getElementById("spear");
+			var potions = document.getElementById("potion");
+			var f = document.getElementById("fox");
+			var heart_icon = document.getElementById("heart");
+			var stamina_icon = document.getElementById("stamina");
+			
+			//scale the canvas and covert it to pixels
+			let rect = canvas.getBoundingClientRect();
+			canvas.width = rect.width * devicePixelRatio;
+			canvas.height = rect.height * devicePixelRatio;
+			ctx.scale(devicePixelRatio, devicePixelRatio);
+			canvas.style.width = rect.width + 'px';
+			canvas.style.height = rect.height + 'px';
+			
+			var rightPressed = false;
+			var leftPressed = false;
+			var upPressed = false;
+			var downPressed = false;
+			var shiftPressed = false;
+			
+			var use_bow = false;
+			var use = false;
+			
+			var one_selected = false;
+			var two_selected = false;
+			var three_selected = false;
+			var four_selected = false;
+			var five_selected = false;
+			var six_selected = false;
+			
+			var m = 1;
+			var stamina = 100;
+			const frame_width = 45;
+			const frame_height = 45;
+			var oriX = 94;
+			var oriY = 0;
+			
+			var character = {
+				x: canvas.width,
+				y: canvas.width,
+				width: 45,
+				height: 45,
+				health: 150
+			}
+			var enemy = {
+				x: Math.floor(Math.random() * 18) * 64,
+				y: Math.floor(Math.random() * 18) * 64,
+				width: 64,
+				height: 64,
+				health: 100
+			}
+			var staminaBar = {
+				x: 20,
+				y: 20,
+				width: 50,
+				height: 100,
+			}
+			var healthBar = {
+				x: 90,
+				y: 20,
+				width: character.health,
+				height: 50,
+			}
+			var axe = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var s = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var spear = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var bow = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var arrow = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var potion = {
+				x: canvas.width - 200, 
+				y: canvas.height,
+				width: 20,
+				height: 40,
+			}
+			var chest = {
+				x: Math.floor(Math.random() * 18) * 64,
+				y: Math.floor(Math.random() * 18) * 64,
+				count: 9,
+				width: 64,
+				height: 64
+			}
+			
+			var direction = 0;
+			var isStarting = false;
+			var alanBtnInstance = alanBtn({
+				key: "dcc78f2ce29e65ac610c79b727334ea62e956eca572e1d8b807a3e2338fdd0dc/stage",
+				onCommand: function (commandData) {
+				  if (commandData.command === "up") {
+					  upPressed = true;
+					  direction = 3;
+					  setTimeout(function (){upPressed = false}, 2000); 
+				  }
+				  if (commandData.command === "down") {
+					  downPressed = true;
+					  direction = 4;
+					  setTimeout(function (){downPressed = false}, 2000); 
+				  }
+				  if (commandData.command === "left") {
+					  rightPressed = true;
+					  direction = 1;
+					  setTimeout(function (){rightPressed = false}, 2000); 
+				  }
+				  if (commandData.command === "right") {
+					  leftPressed = true;
+					  direction = 2;
+					  setTimeout(function (){leftPressed = false}, 2000); 
+				  }
+				  if (commandData.command === "one") {
+					  one_selected = true;
+					  two_selected = false;
+					  three_selected = false;
+					  four_selected = false;
+					  five_selected = false;
+					  six_selected = false;
+				  }
+				  if (commandData.command === "two") {
+					  one_selected = false;
+					  two_selected = true;
+					  three_selected = false;
+					  four_selected = false;
+					  five_selected = false;
+					  six_selected = false;
+				  }
+				  if (commandData.command === "three") {
+					  one_selected = false;
+					  two_selected = false;
+					  three_selected = true;
+					  four_selected = false;
+					  five_selected = false;
+					  six_selected = false;
+				  }
+				  if (commandData.command === "four") {
+					  one_selected = false;
+					  two_selected = false;
+					  three_selected = false;
+					  four_selected = true;
+					  five_selected = false;
+					  six_selected = false;
+				  }
+				  if (commandData.command === "five") {
+					  one_selected = false;
+					  two_selected = false;
+					  three_selected = false;
+					  four_selected = false;
+					  five_selected = true;
+					  six_selected = false;
+				  }
+				  if (commandData.command === "six") {
+					  one_selected = false;
+					  two_selected = false;
+					  three_selected = false;
+					  four_selected = false;
+					  five_selected = false;
+					  six_selected = true;
+				  }
+				  if (commandData.command === "use") {
+					  use = true;
+				  }
+				},
+				rootEl: document.getElementById("alan-btn"),
+		  	});
+			
+//			function keyDownHandler(e) {
+//				if(e.keyCode == 65) {
+//					rightPressed = true;
+//					direction = 1;
+//				}
+//				else if(e.keyCode == 68) {
+//					leftPressed = true;
+//					direction = 2;
+//				}
+//				else if(e.keyCode == 87) {
+//					upPressed = true;
+//					direction = 3;
+//				}
+//				else if(e.keyCode == 83) {
+//					downPressed = true;
+//					direction = 4;
+//				}
+//				else if(e.keyCode == 16) {
+//					shiftPressed = true;
+//				}
+//				else if(e.keyCode == 49){
+//					one_selected = true;
+//					two_selected = false;
+//					three_selected = false;
+//					four_selected = false;
+//					five_selected = false;
+//					six_selected = false;
+//				}
+//				else if(e.keyCode == 50){
+//					one_selected = false;
+//					two_selected = true;
+//					three_selected = false;
+//					four_selected = false;
+//					five_selected = false;
+//					six_selected = false;
+//				}
+//				else if(e.keyCode == 51){
+//					one_selected = false;
+//					two_selected = false;
+//					three_selected = true;
+//					four_selected = false;
+//					five_selected = false;
+//					six_selected = false;
+//				}
+//				else if(e.keyCode == 52){
+//					one_selected = false;
+//					two_selected = false;
+//					three_selected = false;
+//					four_selected = true;
+//					five_selected = false;
+//					six_selected = false;
+//				}
+//				else if(e.keyCode == 53){
+//					one_selected = false;
+//					two_selected = false;
+//					three_selected = false;
+//					four_selected = false;
+//					five_selected = true;
+//					six_selected = false;
+//				}
+//				else if(e.keyCode == 54){
+//					one_selected = false;
+//					two_selected = false;
+//					three_selected = false;
+//					four_selected = false;
+//					five_selected = false;
+//					six_selected = true;
+//				}
+//				
+//				else if(e.keyCode == 32){
+//					use = true;
+//				}
+//			}
+//
+//			function keyUpHandler(e) {
+//				if(e.keyCode == 65) {
+//					rightPressed = false;
+//				}
+//				else if(e.keyCode == 68) {
+//					leftPressed = false;
+//					direction = 0;
+//				}
+//				else if(e.keyCode == 87) {
+//					upPressed = false;
+//					direction = 0;
+//				}
+//				else if(e.keyCode == 83) {
+//					downPressed = false;
+//					direction = 0;
+//				}
+//				else if(e.keyCode == 16) {
+//					shiftPressed = false;
+//					direction = 0;
+//				}
+//			}
+			
+			function drawBackground(){
+				size = 64;
+				var grass = ctx.createPattern(g, "repeat");
+				var water = ctx.createPattern(w, "repeat");
+				drawMap = function(){
+					for (let index = 0; index < map.length; index ++) {
+						if (map[index] >= 2){
+							ctx.fillStyle = grass;
+						}
+						if (map[index] == 1){
+							ctx.fillStyle = water;
+						}
+						if (map[index] == -1){
+							ctx.fillStyle = "black";
+						}
+						ctx.fillRect((index % 19) * size, Math.floor(index/19) * size, size, size);
+						
+						if (map[index] == 4){
+							ctx.drawImage(t, (index % 19) * size, Math.floor(index/19) * size - 9);
+						}
+						
+					}
+				}
+				
+				drawMap();
+			}
+			
+			chest_pos = []
+			for (i = 0; i < chest.count; i++){
+				limit = []
+				chest.x = 64 + Math.floor(Math.random() * 17) * 64;
+				chest.y = 64 + Math.floor(Math.random() * 17) * 64;
+				weapon = Math.floor(Math.random() * 6);
+				limit.push(chest.x);
+				limit.push(chest.y);
+				limit.push(weapon);
+				chest_pos.push(limit);
+			}	
+			no_item = "";
+			function drawChest(){
+				for (cs = 0; cs < chest.count; cs++){
+					ctx.drawImage(cl, chest_pos[cs][0], chest_pos[cs][1], chest.width, chest.height);
+					
+					if (overlaps_chest(character, chest, chest_pos[cs][0], chest_pos[cs][1])){
+						ctx.drawImage(co, chest_pos[cs][0], chest_pos[cs][1], chest.width, chest.height);
+						if (chest_pos[cs][2] == 0){
+							no_item = "No Item Found";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						
+						if (chest_pos[cs][2] == 1){
+							ctx.drawImage(axes, chest_pos[cs][0] + 20, chest_pos[cs][1] + 40);
+							no_item = "You found an Axe!";
+							setTimeout(function (){no_item = ""}, 1000);
+							equip_axe = true;
+						}
+						
+						if (chest_pos[cs][2] == 2){
+							ctx.drawImage(sword, chest_pos[cs][0] + 20, chest_pos[cs][1] + 40);
+							no_item = "You found a Sword!";
+							setTimeout(function (){no_item = ""}, 1000);
+							equip_sword = true;
+						}
+						
+						if (chest_pos[cs][2] == 3){
+							ctx.drawImage(bows, chest_pos[cs][0] + 20, chest_pos[cs][1] + 40);
+							ctx.drawImage(arrows, chest_pos[cs][0] + 40, chest_pos[cs][1] + 40);
+							no_item = "You found Bow and Arrows!";
+							setTimeout(function (){no_item = ""}, 1000);
+							equip_bow = true;
+							equip_arrows = true;
+						}
+						
+						if (chest_pos[cs][2] == 4){
+							ctx.drawImage(spears, chest_pos[cs][0] + 20, chest_pos[cs][1] + 40);
+							no_item = "You found a Spear!";
+							setTimeout(function (){no_item = ""}, 1000);
+							equip_spear = true;
+						}
+						
+						if (chest_pos[cs][2] == 5){
+							ctx.drawImage(potions, chest_pos[cs][0] + 20, chest_pos[cs][1] + 40);
+							no_item = "You found a Healing Potion!";
+							setTimeout(function (){no_item = ""}, 1000);
+							equip_potion = true;
+						}
+					}
+				}
+			}
+			
+			function overlaps(a, b) {
+				a.x1 = a.x;
+				a.y1 = a.y;
+				a.x2 = a.x + a.width;
+				a.y2 = a.y + a.height;
+				
+				b.x1 = b.x;
+				b.y1 = b.y;
+				b.x2 = b.x + b.width;
+				b.y2 = b.y + b.height;
+				// has horizontal gap
+				if (a.x1 > b.x2 || b.x1 > a.x2) return false;
+
+				// has vertical gap
+				if (a.y1 > b.y2 || b.y1 > a.y2) return false;
+
+				return true;
+			}
+					
+			function overlaps_chest(a, b, x, y) {
+				a.x1 = a.x;
+				a.y1 = a.y;
+				a.x2 = a.x + a.width;
+				a.y2 = a.y + a.height;
+				
+				b.x1 = x;
+				b.y1 = y;
+				b.x2 = b.x1 + b.width;
+				b.y2 = b.y1 + b.height;
+				// has horizontal gap
+				if (a.x1 > b.x2 || b.x1 > a.x2) return false;
+
+				// has vertical gap
+				if (a.y1 > b.y2 || b.y1 > a.y2) return false;
+
+				return true;
+			}
+			
+			var equip_axe = false;
+			var equip_sword = false;
+			var equip_bow = false;
+			var equip_arrows = false;
+			var equip_spear = false;
+			var equip_potion = false;
+			
+			function conditions(){
+				enemies();
+				drawChicken();
+				if (rightPressed == true && stamina > 0){
+					character.x -= 5 * m;
+					stamina -= m/2;
+				}
+				if (rightPressed == true && stamina < 0){
+					character.x += 2;
+				}
+				
+				if (leftPressed == true && stamina > 0){
+					character.x += 5 * m;
+					stamina -= m/2;
+				}
+				if (leftPressed == true && stamina < 0){
+					character.x -= 2;
+				}
+				
+				if (upPressed == true && stamina > 0){
+					character.y -= 5 * m;
+					stamina -= m/2;
+				}
+				if (upPressed == true && stamina < 0){
+					character.y -= 2;
+				}
+				
+				if (downPressed == true && stamina > 0){
+					character.y += 5 * m;
+					stamina -= m/2;
+				}
+				if (downPressed == true && stamina < 0){
+					character.y += 2;
+				}
+				
+				if (shiftPressed == true && stamina > 0){
+					m = 1.5;
+				}
+				else{
+					m = 1;
+				}
+				
+				stamina += 0.5;
+				if (stamina >= 100){
+					stamina = 100;
+				}
+				setTimeout(loop, 40);
+				
+				if (character.x < 64){
+					character.x = 64;
+				}
+				if (character.x > 1100){
+					character.x = 1100;
+				}
+				if (character.y < 64){
+					character.y = 64;
+				}
+				if (character.y > 1100){
+					character.y = 1100;	
+				}
+				
+				if (equip_axe == true){
+					for (let i = 0; i < inventory.length; i++){
+						if(inventory[i] == 1){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 1;
+							break;
+						}
+					}
+					ctx.drawImage(axes, axe.x, axe.y);
+					axe.x = -100;
+					axe.y = -100;	
+				}
+				
+				if (equip_sword == true){
+					for (let i = 0; i < inventory.length; i++){
+						
+						if(inventory[i] == 2){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 2;
+							break;
+						}
+					}
+					ctx.drawImage(sword, s.x, s.y);
+					s.x = -100;
+					s.y = -100;
+				}
+				
+				if (equip_bow == true){
+					for (let i = 0; i < inventory.length; i++){
+						
+						if(inventory[i] == 3){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 3;
+							break;
+						}
+					}
+					ctx.drawImage(bows, bow.x, bow.y);
+					bow.x = -100;
+					bow.y = -100;
+				}
+				
+				if (equip_arrows == true){
+					for (let i = 0; i < inventory.length; i++){
+						
+						if(inventory[i] == 4){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 4;
+							break;
+						}
+					}
+					ctx.drawImage(arrows_h, arrow.x, arrow.y);
+					arrow.x = -100;
+					arrow.y = -100;
+				}
+				
+				if (equip_spear == true){
+					for (let i = 0; i < inventory.length; i++){
+						
+						if(inventory[i] == 5){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 5;
+							break;
+						}
+					}
+					ctx.drawImage(spears, spear.x, spear.y);
+					spear.x = -100;
+					spear.y = -100;
+				}
+				
+				if (equip_potion == true){
+					for (let i = 0; i < inventory.length; i++){
+						
+						if(inventory[i] == 6){
+							break;
+						}
+						
+						if (inventory[i] == 0){
+							inventory[i] = 6;
+							break;
+						}
+					}
+					ctx.drawImage(potions, potion.x, potion.y);
+					potion.x = -100;
+					potion.y = -100;
+				}
+				
+				var arrow_spawn = false;
+				var changeX = 0;
+				var changeY = 0;
+				for (i = 0; i < enemy_lst.length; i++){
+					if (one_selected){
+						if(inventory[0] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[0] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[0] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							if (direction !== 0 && use == true){
+								console.log(arrow.x, arrow.y);
+								if(direction == 1){
+									changeX = 40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 2){
+									changeX = -40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 3){
+									changeY = -60;
+									direction == 0
+									use = false;
+								}
+								if(direction == 4){
+									changeY = 60;
+									direction == 0
+									use = false;
+								}
+							}
+							if(overlaps_chest(arrow, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 50;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							
+							arrow.x = character.x - 20 + changeX;
+							arrow.y = character.y + 20 + changeY;	
+						}
+						if(inventory[0] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[0] == 5){
+							spear.x = character.x - 10;
+							spear.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(spear, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[0] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+							
+						}
+						if(inventory[0] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+
+					if (two_selected){
+						if(inventory[1] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[1] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[1] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							if (direction !== 0 && use == true){
+								console.log(arrow.x, arrow.y);
+								if(direction == 1){
+									changeX = 40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 2){
+									changeX = -40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 3){
+									changeY = -60;
+									direction == 0
+									use = false;
+								}
+								if(direction == 4){
+									changeY = 60;
+									direction == 0
+									use = false;
+								}
+							}
+							if(overlaps_chest(arrow, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 50;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							
+							arrow.x = character.x - 20 + changeX;
+							arrow.y = character.y + 20 + changeY;
+						}
+						if(inventory[1] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[1] == 5){
+							spear.x = character.x - 10;
+							spear.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(spear, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[1] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+							
+						}
+						if(inventory[1] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+					
+					if (three_selected){
+						if(inventory[2] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[2] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[2] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							arrow.x = character.x - 20;
+							arrow.y = character.y + 20;	
+						}
+						if(inventory[2] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[2] == 5){
+							spear.x = character.x - 10;
+							spear.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(spear, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[2] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+						}
+						if(inventory[2] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+					
+					if (four_selected){
+						if(inventory[3] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[3] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[3] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							if (direction !== 0 && use == true){
+								console.log(arrow.x, arrow.y);
+								if(direction == 1){
+									changeX = 40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 2){
+									changeX = -40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 3){
+									changeY = -60;
+									direction == 0
+									use = false;
+								}
+								if(direction == 4){
+									changeY = 60;
+									direction == 0
+									use = false;
+								}
+							}
+							if(overlaps_chest(arrow, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 50;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							
+							arrow.x = character.x - 20 + changeX;
+							arrow.y = character.y + 20 + changeY;
+						}
+						if(inventory[3] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[3] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+							
+						}
+						if(inventory[3] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+
+					if (five_selected){
+						if(inventory[4] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[4] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[4] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							if (direction !== 0 && use == true){
+								console.log(arrow.x, arrow.y);
+								if(direction == 1){
+									changeX = 40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 2){
+									changeX = -40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 3){
+									changeY = -60;
+									direction == 0
+									use = false;
+								}
+								if(direction == 4){
+									changeY = 60;
+									direction == 0
+									use = false;
+								}
+							}
+							if(overlaps_chest(arrow, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 50;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							
+							arrow.x = character.x - 20 + changeX;
+							arrow.y = character.y + 20 + changeY;
+						}
+						if(inventory[4] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[4] == 5){
+							spear.x = character.x - 10;
+							spear.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(spear, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[4] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+							
+						}
+						if(inventory[4] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+					
+					if (six_selected){
+						if(inventory[5] == 1){
+							axe.x = character.x - 10;
+							axe.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(axe, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[5] == 2){
+							s.x = character.x - 10;
+							s.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(s, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[5] == 3){
+							bow.x = character.x - 10;
+							bow.y = character.y;
+							if (direction !== 0 && use == true){
+								console.log(arrow.x, arrow.y);
+								if(direction == 1){
+									changeX = 40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 2){
+									changeX = -40;
+									direction == 0
+									use = false;
+								}
+								if(direction == 3){
+									changeY = -60;
+									direction == 0
+									use = false;
+								}
+								if(direction == 4){
+									changeY = 60;
+									direction == 0
+									use = false;
+								}
+							}
+							if(overlaps_chest(arrow, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 50;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							
+							arrow.x = character.x - 20 + changeX;
+							arrow.y = character.y + 20 + changeY;
+						}
+						if(inventory[5] == 4){
+							no_item = "Equip Bow to use arrows";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+						if(inventory[5] == 5){
+							spear.x = character.x - 10;
+							spear.y = character.y;
+							if(0 < enemy_lst[i][2] < 100){
+								ctx.fillStyle = "black";
+								ctx.fillRect(enemy_lst[i][0] + 5, enemy_lst[i][1] - 34, 54, 24);
+								ctx.fillStyle = "green";
+								ctx.fillRect(enemy_lst[i][0] + 7, enemy_lst[i][1] + 2 - 34, enemy_lst[i][2]/2, 20);
+							}
+							if(overlaps_chest(spear, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+								enemy_lst[i][2] -= 10;
+								if(enemy_lst[i][2] <= 0){
+									enemy_lst[i][0] = Math.floor(Math.random() * 18) * 64;
+									enemy_lst[i][1] = Math.floor(Math.random() * 18) * 64;
+									killCount += 1;	
+									enemy_lst[i][2] = 100;
+								}
+							}
+						}
+						if(inventory[5] == 6){
+							potion.x = character.x - 10;
+							potion.y = character.y;
+							if(character.health < 150 && use == true){
+								character.health += 50;
+								if(character.health > 150){
+									character.health = 150;
+									use = false;
+								}
+								use = false;
+							}
+							
+						}
+						if(inventory[5] == 0){
+							no_item = "No Item In Slot";
+							setTimeout(function (){no_item = ""}, 1000);
+						}
+					}
+				}
+			}
+			
+			function getRandomInt() {
+				return Math.floor(Math.random() * 6);
+			}
+			
+			function randomMap(){
+				map = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), -1,
+					   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];	
+			}
+			
+			function frame(img, x, y, width, height, posX, posY){
+				ctx.drawImage(img, x, y, width, height, posX, posY, character.width, character.height);
+			}	
+				
+			//Zombies
+			var wave = 1;
+			var speed = 1;
+			function generate_wave(){
+				enemy_lst = []
+				for (i = 0; i < wave * 5; i++){
+					enemy_position = [];
+					enemy.x = Math.floor(Math.random() * 18) * 64;
+					enemy.y = Math.floor(Math.random() * 18) * 64;
+					enemy.health = 100;
+					enemy_position.push(enemy.x);
+					enemy_position.push(enemy.y);
+					enemy_position.push(enemy.health);
+					enemy_lst.push(enemy_position);
+				}	
+			}
+			
+			function enemies(){
+				//draw enemys for every wave
+				for (i = 0;  i < enemy_lst.length; i++){
+					if (enemy_lst[i] !== undefined){
+						ctx.drawImage(f, enemy_lst[i][0], enemy_lst[i][1]);
+						if (character.y + character.height < enemy_lst[i][1]){
+							enemy_lst[i][1] -= 1 * speed;
+						}
+
+						if (character.y > enemy_lst[i][1] + enemy.height){
+							enemy_lst[i][1] += 1 * speed;
+						}
+
+						if (character.x + character.width < enemy_lst[i][0]){
+							enemy_lst[i][0] -= 1 * speed;
+						}
+
+						if (character.x > enemy_lst[i][0] + enemy.width){
+							enemy_lst[i][0] += 1 * speed;
+						}
+
+						if(overlaps_chest(character, enemy, enemy_lst[i][0], enemy_lst[i][1])){
+							character.health -= 1;	
+						}	
+					}
+				}
+			}
+			
+			//UI & Inventory
+			inventory = [0, 0, 0, 0, 0, 0];
+			killCount = 0;
+			function UI(){
+				//Stamina
+				ctx.fillStyle = "white";
+				ctx.fillRect(staminaBar.x, staminaBar.y, staminaBar.width, staminaBar.height);
+				ctx.fillStyle = "orange";
+				ctx.fillRect(staminaBar.x, staminaBar.y + (100-stamina), staminaBar.width, stamina);
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 5;
+				ctx.strokeRect(staminaBar.x, staminaBar.y, staminaBar.width, staminaBar.height);
+				ctx.drawImage(stamina_icon, staminaBar.x + 5, staminaBar.y + staminaBar.height/2- 25);
+				
+				//Health
+				ctx.fillStyle = "white";
+				ctx.fillRect(healthBar.x, healthBar.y, healthBar.width, healthBar.height);
+				ctx.fillStyle = "#FF7F7F";
+				ctx.fillRect(healthBar.x, healthBar.y, character.health, healthBar.height);
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 5;
+				ctx.strokeRect(healthBar.x, healthBar.y, healthBar.width, healthBar.height);
+				ctx.drawImage(heart_icon, healthBar.x + healthBar.width/3, healthBar.y + 3);
+				
+				//Inventory
+				for (let index = 0; index < inventory.length; index++){
+					ctx.fillStyle = "black";	
+					ctx.fillRect(108 + (index * 64), 536, 64, 64);
+					if (inventory[index] == 0){
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+					}
+					if (inventory[index] == 1){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(axes, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+					if (inventory[index] == 2){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(sword, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+					
+					if (inventory[index] == 3){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(bows, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+					
+					if (inventory[index] == 4){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(arrows, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+					
+					if (inventory[index] == 5){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(spears, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+					
+					if (inventory[index] == 6){	
+						ctx.fillStyle = "white";	
+						ctx.fillRect(108 + (index * 64) + 4, 536 + 4, 56, 56);
+						ctx.drawImage(potions, 108 + (index * 64) + 4 + 15, 536 + 4 + 10);
+					}
+				}
+				
+				ctx.font = "bold 30px Courier New";
+				ctx.textAlign = "center";
+				ctx.fillStyle = "white";
+				
+				ctx.fillText(no_item, 300, 100);
+				ctx.fillText("Kill Count: " + killCount, 470, 50);
+			}
+			
+			//Drawing Chicken
+			let currentLoopIndex = 0;
+			function drawChicken(){
+				if (leftPressed == false && rightPressed == false && upPressed == false && downPressed == false){
+					frame(sheet, 94, 47, frame_width, frame_height, character.x, character.y) ;
+				}
+				
+				if (rightPressed){
+					const cycleLoop = [94, 141, 188, 235, 282];
+					frame(sheet, cycleLoop[currentLoopIndex], 0, frame_width, frame_height, character.x, character.y);
+					currentLoopIndex++;
+					if (currentLoopIndex >= cycleLoop.length) {
+						currentLoopIndex = 0;
+					}	
+				}
+				
+				if (leftPressed){
+					const cycleLoop = [188, 141, 94, 47, 0];
+					frame(sheetf, cycleLoop[currentLoopIndex], 0, frame_width, frame_height, character.x, character.y);
+					currentLoopIndex++;
+					if (currentLoopIndex >= cycleLoop.length) {
+						currentLoopIndex = 0;
+					}	
+				}
+				
+				if (upPressed){
+					const cycleLoop = [94, 141, 188, 235, 282];
+					frame(sheet, cycleLoop[currentLoopIndex], 94, frame_width, frame_height, character.x, character.y);
+					currentLoopIndex++;
+					if (currentLoopIndex >= cycleLoop.length) {
+						currentLoopIndex = 0;
+					}	
+				}
+				
+				if (downPressed){
+					const cycleLoop = [94, 141, 188, 235, 282];
+					frame(sheet, cycleLoop[currentLoopIndex], 47, frame_width, frame_height, character.x, character.y);
+					currentLoopIndex++;
+					if (currentLoopIndex >= cycleLoop.length) {
+						currentLoopIndex = 0;
+					}	
+				}
+			}
+			
+			//generation and draw loop
+			randomMap();
+			generate_wave();
+			function loop(){
+				ctx.save();
+					ctx.translate((-1 * character.x) + canvas.width/2, (-1 * character.y) + canvas.height / 2);
+
+					framecount = 0;
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					drawBackground();
+					drawChest();
+
+					conditions();		
+				ctx.restore();
+
+				UI();
+			};
+			
+			var lastRender = 0;
+			window.requestAnimationFrame(loop);
+			
+//			//event listeners
+//			document.addEventListener('keydown', keyDownHandler, false);
+//			document.addEventListener('keyup', keyUpHandler, false);
+			
+		</script>
+	</body>
+</html>

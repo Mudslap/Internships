@@ -1,0 +1,316 @@
+<html>
+	<head>
+		<title>Welcome to Voice Games</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			html{
+				padding: 0;
+				margin: 0;
+				font-family: "Courier New";
+				overflow-x: hidden;
+			}
+			body{
+				background-color: lightgray;
+			}
+			
+			/*General*/
+			h2{
+				font-size: 17px;
+				z-index: 1;
+			}
+			.line{
+				width: 100px;
+				height: 1px;
+				border-top: 2px solid black;
+				position: relative;
+				left: 50%;
+				transform: translate(-50%,0%);
+			}
+			.links{
+				color: mediumblue;
+			}
+			.links:hover{
+				color: mediumblue;
+				border-bottom: 2px solid mediumblue;
+			}
+			.large{
+				font-size: 70px;
+				font-weight: bold;
+				text-align: center;
+				color: #242526;
+				margin-bottom: 0;
+			}
+			.sub{
+				color: #242526;
+				text-align: center;
+				font-size: 40px;
+			}
+			
+			.icon{
+				font-size: 40px;
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+			.youtube{
+				color: red;
+				background-color: white;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 1.3;
+				border-radius: 25px;
+			}
+			.instagram{
+				color: white;
+				background: linear-gradient(45deg, #ffdc80, #fcaf45, #f77737, #f56040, #fd1d1d, #e1306c, #c13584, #833ab4, #5851db, #405de6);
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 1.3;
+				border-radius: 25px;
+			}
+			.github{
+				background-color: white;
+				color: black;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 1.3;
+				border-radius: 25px;
+			}
+			
+			/*Header*/
+			#header{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 8%;
+				background-color: lightslategray;
+				background: rgba(0, 0, 0, 0.4);
+				color: black;
+				font-size: 30px;
+				z-index: 3;
+				margin: 0;
+			}
+			details{
+				position: fixed;
+				
+			}
+			.one{
+				position: fixed;
+				right: 35%;
+				top: 50%;
+				transform: translate(0%, -50%);
+			}
+			.two{
+				position: fixed;
+				left: 15px;
+				top: 50%;
+				transform: translate(0%, -50%);
+				margin: 0;
+				color: gainsboro;
+			}
+			.three{
+				position: fixed;
+				right: 1%;
+				top: 50%;
+				transform: translate(0%, -50%);
+			}
+			#header details p{
+				background-color: dimgray;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 39px;
+				font-size: 17px;
+				padding: 10px;
+			}
+			details summary{
+				cursor: pointer;
+			}	
+			#center{
+				position: relative;
+				left: 0;
+				top: 50%;
+				transform: translate(0, -50%);
+			}	
+			a{
+				text-decoration: none;
+				color: black;
+				font-weight: bold; 
+				transition: 0.3s;
+			}
+			.title-link:hover{
+				color: white;
+				border-bottom: 2px solid white;
+			}
+			
+			/*Title*/
+			#title{
+				position: absolute;
+				left: 50%;
+				top: 8%;
+				transform: translate(-50%,0%);
+				width: 100%;
+				height: 115%;
+			}
+	
+			/*Sections*/
+			.section-header{
+				color: #242526;
+				border-bottom: 3px solid #242526;
+			}
+			#section1{
+				position: relative;
+				width: 100%;
+				height: 90vh;
+			}
+			#section1-text{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 90vh;
+				background-image: url(img/chumps.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				opacity: 0.3;
+			}
+			#circle1{
+				width: 20px;
+				height: 20px;
+				background-color: black;
+				border-radius: 25px;
+				position: absolute;
+				bottom: 2%;
+				left: 48%;
+				transform: translate(-50%, 0);
+			}
+			#circle2{
+				width: 20px;
+				height: 20px;
+				background-color: slategray;
+				border-radius: 25px;
+				position: absolute;
+				bottom: 2%;
+				left: 52%;
+				transform: translate(-50%, 0);
+			}
+			#text1{
+				position: relative;
+				top: 40%;
+				transform: translate(0, -50%);
+				padding: 0;
+				margin: 0;
+			}
+			#text1 h1{
+				margin: 0;
+			}
+			#text1 h2 {
+				margin: 0;
+			}
+			#section2{
+				position: relative;
+				background-color: gray;
+				padding: 5px 20px 10px 20px;
+			}
+			#section3{
+				position: relative;
+				background-color: lightgray;
+				padding: 5px 20px 10px 20px;
+			}
+			#buttons{
+				text-align: center;
+			}
+			#buttons a{
+				border: 1px solid white;
+				padding: 10px;
+				background-color: white;
+				transition: 2s;
+				font-size: 20px;
+			}
+			#buttons a:hover{
+				background-color: black;
+				color: white;
+				border: 1px solid black;
+				border-radius: 25px;
+				transition: 2s;
+			}
+			i{
+				transition: 1s;
+			}
+			i:hover{
+				transition: 2s;
+				transform: rotate(360deg);
+				border-bottom: 0px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div id="center">
+				<details class="one">
+					<summary><a  class="title-link" href="Chump.html">Chump Game</a></summary>
+					<p>This game is a remix of the famous dinosaur game made by Google except with a TWIST! You use your voice to control the character rather than using your keyboard!</p>
+				</details>
+				
+				<details class="three">
+					<summary><a class="title-link" href="Survival.html">Survival Game</a></summary>
+					<p>This game is a fast paced survival style game where you loot chests and try to kill your fox enemies. This game is infinite and your objective is to get the most amount of enemies killed as possible!</p>
+				</details>
+				<h3 class="two"><a class="title-link" href="Home.html">Voice Games</a></h3>
+			</div>
+		</div>
+		
+		<div id="title">
+			<div id="section1-text"></div>
+			<div id="section1">
+				<div id="text1">
+					<h1 class="large">Voice Games</h1>
+					<h2 class="sub">A Creative and Innovative way to game</h2>
+					<h3 style="text-align: center;"><a href="https://www.youtube.com/channel/UCy0dpdz0M58RAP-pfTWkMdQ" class="links">View Tutorial and Much more on youtube</a></h3>
+					<br>
+					<p id="buttons"><a href="Chump.html">Chump Game</a> <a href="Survival.html">Survival Game</a></p>
+				</div>
+				<div id="circle1"></div>
+				<div id="circle2"></div>
+			</div>
+			<script>
+				var images = document.getElementById("section1-text");
+				var one = document.getElementById("circle1");
+				var two = document.getElementById("circle2");
+				
+				one.onclick = function(){
+					images.style.backgroundImage="url(/img/chumps.png)";
+					one.style.backgroundColor="black";
+					two.style.backgroundColor="slategray";
+				};
+				two.onclick = function(){
+					images.style.backgroundImage="url(/img/Survival.png)";
+					one.style.backgroundColor="slategray";
+					two.style.backgroundColor="black";
+				};
+			</script>
+			
+			<div id="section2">
+				<h1 class="section-header">Our Mission</h1>
+				<h2 class="text">Gaming is one of the most entertaining things for both kids and adults. However millions of disabled people, such as amputees and people with medical problems, aren't able to play these enjoyable pixels on our screen just like us. By incorporating Alan AI into custom built games, people are able to play enjoyable games anywhere no matter what medical issues they have.</h2>
+				
+				<h2 class="text">Voice Games is an internship project built by a middle school student for <a href="https://alan.app/" class="links">Alan AI</a> and <a href="https://www.pilotcity.com/" class="links">PilotCity</a>.</h2>
+			</div>
+			
+			<div id="section3">
+				<h1 class="section-header">Socials</h1>
+				<div id="icons">
+					<a href="https://www.youtube.com/channel/UCy0dpdz0M58RAP-pfTWkMdQ"><i class="fa fa-youtube-play icon youtube"></i></a>
+					<a href=""><i class="fa fa-instagram icon instagram"></i></a>
+					<a href="https://github.com/Mudslap/Alan-Ai-Project"><i class="fa fa-github icon github"></i></a>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html> 
