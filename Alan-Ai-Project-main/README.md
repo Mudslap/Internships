@@ -3,3 +3,6 @@ In this repository, there are two main files. The first one is my actual Flagshi
 
 My Youtube videos to follow along:
 https://www.youtube.com/watch?v=un9FuHu_XJ8&list=PLJvQtLU4FCqfj3awDwFTu1CNuL0ZIL7Kz
+
+The link to the project is:
+https://mudslap.github.io/Internships/Alan-Ai-Project-main/Alan%20Ai%20Projects/Actual%20Flapship%20Project/home.html
